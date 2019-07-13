@@ -1,28 +1,25 @@
 <div class="wrapper">
-        <div id ="filter">Search: &nbsp;
-            <input type="text"
-            [(ngModel)]="listFilter"/>
-        </div>
-        <div class="list">
-                <table>
-                    <thead>
-                        <tr>
-                          <th>Name</th>
-                          <th>Email</th>
-                          <th>Phone Number</th>
-                        </tr>
-                        <tr>
-                    </thead>
-                    <tbody>
-                        <tr *ngFor='let contact of filteredContacts'>
-                            <td>{{contact.contactName}}</td>
-                            <td>{{contact.contactEmail}}</td>
-                            <td>{{contact.contactPhoneNum}}</td>
-                        </tr>
-                    </tbody>
-                          
-                </table>
-                      
-        </div>
-        
-</div> 
+    <div id="bar">Search: &nbsp;
+        <input type="text" [(ngModel)]="listFilter" />
+        <a class="button" [routerLink]="['/ContactsList/contact-add-new']">+</a>
+    </div>
+    <div class="list">
+        <table>
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Phone Number</th>
+                </tr>
+                <tr>
+            </thead>
+            <tbody>
+                <tr *ngFor='let contact of filteredContacts' [routerLink]="['/ContactsList', contact.id]">
+                    <td>{{contact.contactName}}</td>
+                    <td>{{contact.contactEmail}}</td>
+                    <td>{{contact.contactPhoneNum}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

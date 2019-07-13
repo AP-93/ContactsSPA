@@ -1,0 +1,23 @@
+#bar {
+  display: flex;
+  font-size: 20px;
+  color: #e9f4fb;
+  padding-left: 2%;
+  align-items: center;
+  background-color: #2691d9;
+}
+.button {
+  margin: 0 5% 2% auto;
+  background: #fcfcfc;
+  background-image: linear-gradient(to bottom, #ffffff, #cacaca);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #2691d9;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+.button:hover {
+  background-image: linear-gradient(to bottom, #eeeeee, #bebdbd);
+  text-decoration: none;
+}

@@ -1,48 +1,78 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: minmax(min-content, 6vh) 1fr;
+  background-color: #fff;
+  color: #444;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 
-  .wrapper {
-    display: grid;
-    grid-template-rows: 1fr 9fr;
-    background-color: #fff;
-    color: #444;
-    height: 80%;
-    width: 100%;
-  }
-  
-  #filter{
-    display: flex;
-    padding-left: 2%;
-    align-items: center;
-    background-color: #aaa;
-  }
+#bar {
+  display: flex;
+  font-size: 20px;
+  color: #e9f4fb;
+  padding-left: 2%;
+  align-items: center;
+  background-color: #2691d9;
+}
 
-  /* Table */
-  table {
-    font-family: arial, sans-serif;
-    border-collapse: collapse;
-    border-style: hidden;
-    width: 100%;
-  
-  }
-  
-  td, th {
-    border: 1px solid #dddddd;
-    display: flex;
-    align-items: center; /* align vertical */
-    padding: 3% 5%; 
-  }
-  th {
-    justify-content: center; /* align horizontal */
-  }
-  td{
-    word-break: break-all;
-  }
+.button {
+  margin: 0 5% 2% auto;
+  background: #fcfcfc;
+  background-image: linear-gradient(to bottom, #ffffff, #cacaca);
+  border-radius: 28px;
+  font-family: Arial;
+  color: #2691d9;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
 
-  tr{
-    display: grid;
-    grid-template-columns: 25% 50% 25%;
-  }
+.button:hover {
+  background: #6a90a8;
+  background-image: linear-gradient(to bottom, #eeeeee, #bebdbd);
+  text-decoration: none;
+}
 
-  tr:nth-child(even) {
-    background-color: #dddddd;
-  }
-  /* TableEnd  */
+/* Table */
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  border-style: hidden;
+  width: 100%;
+}
+
+td,th {
+  border: 1px solid #dddddd;
+  display: flex;
+  align-items: center; /* align vertical */
+  padding: 3% 5%;
+}
+
+th {
+  background-color: #e9f4fb;
+  color: #2691d9;
+  justify-content: center; /* align horizontal */
+}
+
+td {
+  word-break: break-all;
+  border-left: none;
+  border-right: none;
+}
+
+tr {
+  display: grid;
+  grid-template-columns: 30% 40% 30%;
+}
+
+tr:hover {
+  background-image: repeating-linear-gradient(to bottom, #fffbfb, #e0dfdf);
+}
+
+tr:nth-child(even) {
+  background-color: #e9f4fb;
+}
+/* TableEnd  */

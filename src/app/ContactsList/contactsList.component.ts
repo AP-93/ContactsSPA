@@ -3,17 +3,15 @@ import { IContact } from './contact';
 import { ContactService } from './contact.service';
 
 @Component({
-  selector: 'app-contactsList',
   templateUrl: './contactsList.component.html',
   styleUrls: ['./contactsList.component.css']
 })
 export class ContactsListComponent implements OnInit {
-
   _listFilter: string;
   filteredContacts: IContact[];
   contacts: IContact[];
   private _contactService;
-  errorMsg:string;
+  errorMsg: string;
 
   constructor(contactService: ContactService) {
     this._contactService = contactService;
@@ -38,9 +36,7 @@ export class ContactsListComponent implements OnInit {
         this.contacts = x;
         this.filteredContacts = this.contacts;
       },
-      error => this.errorMsg = <any>error    
-      );
-
+      error => this.errorMsg = <any>error
+    );
   }
-
 }
