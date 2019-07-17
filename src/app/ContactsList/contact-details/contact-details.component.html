@@ -1,8 +1,15 @@
 <div class="wrapper">
-    <div id="bar">{{title}}
+    <div id="bar">
+        <h2>{{title}}</h2>
+        <div class="button">Edit</div>
+        <div class="button">Delete</div>
         <a class="button" [routerLink]="['/ContactsList']">Back</a>
     </div>
-    <div class="addContactForm">
-        aaaaaaaaaaaaaaaaa detalji {{id}} {{contact.contactName}}
+    <div class="contactInfo" *ngIf="contact">
+        <div class="row">Name: {{contact.firstName}} {{contact.lastName}}</div>
+        <div class="row" id="emails">
+            <div *ngFor="let e of contact.emails"> Email: {{e.email}}</div>
+        </div>
+        <div class="row">Phone Number: {{contact.contactPhoneNum}}</div>
     </div>
 </div>

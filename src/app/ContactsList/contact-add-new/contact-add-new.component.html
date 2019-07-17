@@ -2,7 +2,19 @@
   <div id="bar">Add new contact
     <a class="button" [routerLink]="['/ContactsList']">Back</a>
   </div>
-  <div class="addContactForm">
-    Here goes FOrm
-  </div>
+  <form class="contactForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+    <label>First Name:</label>
+    <input type="text" name="firstName" placeholder="  First Name" [(ngModel)]="newContact.firstName" required
+      #firstNameField="ngModel" [class.field-error]="form.submitted && firstNameField.invalid">
+    <label>Last Name:</label>
+    <input type="text" name="lastName" placeholder="  Last Name" [(ngModel)]="newContact.lastName" required
+      #lastNameField="ngModel" [class.field-error]="form.submitted && lastNameField.invalid">
+    <label>Email:</label>
+    <input type="email" name="email" placeholder="  Email@email.com" [(ngModel)]="newContact.emails"
+      #emailField="ngModel">
+    <label>Phone Number:</label>
+    <input type="text" name="phoneNum" placeholder="  phone number" [(ngModel)]="newContact.phoneNumbers" required
+      #phoneNumField="ngModel" [class.field-error]="form.submitted && phoneNumField.invalid">
+    <button class="button">Save</button>
+  </form>
 </div>

@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http"
-import { Observable, throwError } from "rxjs";
+import { Observable, throwError, of } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 
 import { IContact } from './contact';
+import { InewContact } from './contact-add-new/newContact';
 
 @Injectable({
   providedIn: 'root'
@@ -22,15 +23,19 @@ export class ContactService {
   }
 
   getContactbyId(id: string): Observable<IContact> {
-
     return this.http.get<IContact>(this.contactsUrl + "/" + id).pipe(
       tap(data => console.log("DATA:  " + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
 
-  private handleError(err: HttpErrorResponse) {
+  postNewContact(newContact: InewContact): Observable<any> {
+    return this.http.post("https://putsreq.com/mFlvs0WpkxJh0eg2cDWR", newContact).pipe(
+      tap(data => console.log("DATA:  " + JSON.stringify(data))),
+      catchError(this.handleError));
+  }
 
+  private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {
       // A client-side or network error occurred. Handle it accordingly.

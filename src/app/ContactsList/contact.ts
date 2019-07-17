@@ -1,6 +1,17 @@
 export interface IContact {
     id: number;
-    contactName: string;
-    contactEmail: string[];
-    contactPhoneNum: string;
+    firstName: string;
+    lastName: string;
+    emails: IEmail[];
+    phoneNumbers: IPhoneNum[];
+}
+export interface IEmail {
+    id: number;
+    email: string;
+    contactID: number;
+}
+export interface IPhoneNum {
+    id: number;
+    phoneNum: string;
+    contactID: number;
 }

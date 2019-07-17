@@ -27,7 +27,7 @@ export class ContactsListComponent implements OnInit {
 
   filterByName(filterBy: string): IContact[] {
     filterBy = filterBy.toLowerCase();
-    return this.contacts.filter((contact: IContact) => contact.contactName.toLowerCase().indexOf(filterBy) > -1)
+    return this.contacts.filter((contact: IContact) => (contact.firstName + contact.lastName).toLowerCase().indexOf(filterBy) > -1)
   }
 
   ngOnInit(): void {

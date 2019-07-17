@@ -1,3 +1,12 @@
+.wrapper {
+  display: grid;
+  grid-template-rows: minmax(min-content, 6vh) 1fr;
+  color: #444;
+  height: 100%;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
 #bar {
   display: flex;
   font-size: 20px;
@@ -6,7 +15,6 @@
   align-items: center;
   background-color: #2691d9;
 }
-
 .button {
   margin: 0 5% 2% auto;
   background: #fcfcfc;
@@ -21,4 +29,23 @@
 .button:hover {
   background-image: linear-gradient(to bottom, #eeeeee, #bebdbd);
   text-decoration: none;
+}
+.contactForm{
+display: grid;
+grid-template-columns: 1fr ;
+margin: 2vh auto;
+row-gap: 1vh;
+}
+input{
+  width:50vw;
+  height: 6vh;
+  margin-bottom: 3vh;
+  border-radius: 10px;
+  border-color: rgba(68, 68, 68, 0.178);
+}
+label{
+  max-width: fit-content;
+}
+.field-error{
+  border: 2px solid rgba(255, 0, 0, 0.712);
 }
