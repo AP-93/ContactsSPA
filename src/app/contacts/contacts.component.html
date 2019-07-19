@@ -1,7 +1,7 @@
 <div class="wrapper">
     <div id="bar">Search: &nbsp;
         <input type="text" [(ngModel)]="listFilter" />
-        <a class="button" [routerLink]="['/ContactsList/contact-add-new']">+</a>
+        <a class="button" [routerLink]="['/contacts/contact-add-new']">+</a>
     </div>
     <div class="list">
         <table>
@@ -11,7 +11,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let contact of filteredContacts' [routerLink]="['/ContactsList', contact.id]">
+                <tr *ngFor='let contact of filteredContacts' [routerLink]="['/contacts', contact.id]">
                     <td>{{contact.firstName}} {{contact.lastName}}</td>
                 </tr>
             </tbody>

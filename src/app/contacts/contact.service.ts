@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http"
-import { Observable, throwError, of } from "rxjs";
+import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
 
-import { IContact } from './contact';
-import { InewContact } from './contact-add-new/newContact';
+import { IContact } from './data/contact';
+import { InewContact } from './data/newContact';
 
 @Injectable({
   providedIn: 'root'
@@ -30,7 +30,7 @@ export class ContactService {
   }
 
   postNewContact(newContact: InewContact): Observable<any> {
-    return this.http.post("https://putsreq.com/mFlvs0WpkxJh0eg2cDWR", newContact).pipe(
+    return this.http.post(this.contactsUrl, newContact, { responseType: 'text' }).pipe(
       tap(data => console.log("DATA:  " + JSON.stringify(data))),
       catchError(this.handleError));
   }

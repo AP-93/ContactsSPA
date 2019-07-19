@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { IContact } from './contact';
+import { IContact } from './data/contact';
 import { ContactService } from './contact.service';
 
 @Component({
-  templateUrl: './contactsList.component.html',
-  styleUrls: ['./contactsList.component.css']
+  templateUrl: './contacts.component.html',
+  styleUrls: ['./contacts.component.css']
 })
-export class ContactsListComponent implements OnInit {
+export class ContactsComponent implements OnInit {
   _listFilter: string;
   filteredContacts: IContact[];
   contacts: IContact[];

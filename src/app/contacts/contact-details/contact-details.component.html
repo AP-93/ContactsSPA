@@ -3,7 +3,7 @@
         <h2>{{title}}</h2>
         <div class="button">Edit</div>
         <div class="button">Delete</div>
-        <a class="button" [routerLink]="['/ContactsList']">Back</a>
+        <a class="button" [routerLink]="['/contacts']">Back</a>
     </div>
     <div class="contactInfo" *ngIf="contact">
         <div class="row">Name: {{contact.firstName}} {{contact.lastName}}</div>

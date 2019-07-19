@@ -1,0 +1,43 @@
+<div class="wrapper">
+  <div id="bar">ADD NEW CONTACT
+    <button class="button" [routerLink]="['/contacts']">Back</button>
+  </div>
+  <form class="contactForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+    <label>First Name:</label>
+    <input type="text" name="firstName" placeholder="  First Name" [(ngModel)]="newContact.firstName" required
+      #firstNameField="ngModel" [class.field-error]="form.submitted && firstNameField.invalid">
+
+    <label>Last Name:</label>
+    <input type="text" name="lastName" placeholder="  Last Name" [(ngModel)]="newContact.lastName" required
+      #lastNameField="ngModel" [class.field-error]="form.submitted && lastNameField.invalid">
+
+    <label>Email:</label>
+    <div class="inputWithButton">
+      <input type="email" name="email" class="emailAndNumberInput" placeholder="  Email@email.com"
+        [(ngModel)]="currentEmail" [maxlength]="100" #emailField="ngModel"
+        pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,3}$" [class.field-error]="emailField.errors && emailField.invalid">
+      <button type="button" class="addButton" (click)="currentEmail ? addAnotherEmail() :false">+</button>
+    </div>
+    <div class="display-current">
+      <div *ngFor='let email of newContact.emails'>
+        {{email}} <button class="deleteButton" type="button" (click)="deleteAddedEmail(email)">x</button>
+      </div>
+    </div>
+
+    <label>Phone Number:</label>
+    <div class="inputWithButton">
+      <input type="text" class="emailAndNumberInput" name="phoneNum" placeholder="  phone number"
+        [(ngModel)]="currentPhoneNum" #phoneNumField="ngModel" pattern="^[0-9]{6,20}$"
+        [class.field-error]="(form.submitted && newContact.phoneNumbers==null) || phoneNumField.errors">
+      <button type="button" class="addButton" (click)=" currentPhoneNum ? addAnotherPhoneNum(): false">+</button>
+      <div class="display-current">
+        <div *ngFor='let pNum of newContact.phoneNumbers'>
+          {{pNum}} <button class="deleteButton" type="button" (click)="deleteAddedPhoneNum(pNum)">x</button>
+        </div>
+      </div>
+      <button type="submit" class="button save-btn">Save</button>
+    </div>
+  </form>
+  <div class="btmMsg" [hidden]="!postError">{{postErrorMsg}}</div>
+</div>
