@@ -35,6 +35,12 @@ export class ContactService {
       catchError(this.handleError));
   }
 
+  deleteContact(id: string): Observable<any> {
+    return this.http.delete(this.contactsUrl + "/" + id).pipe(
+      tap(data => console.log("DATA:  " + JSON.stringify(data))),
+      catchError(this.handleError));;
+  }
+
   private handleError(err: HttpErrorResponse) {
     let errorMessage = '';
     if (err.error instanceof ErrorEvent) {

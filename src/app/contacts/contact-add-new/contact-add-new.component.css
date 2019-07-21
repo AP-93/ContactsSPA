@@ -1,41 +1,13 @@
-.wrapper {
-  display: grid;
-  grid-template-rows: minmax(min-content, 6vh) 1fr;
-  color: #444;
-  height: 100%;
-  width: 100vw;
-  margin: 0;
-  padding: 0;
-}
-#bar {
-  display: flex;
-  font-size: 3vh;
-  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
-  color: #e9f4fb;
-  padding-left: 2%;
-  align-items: center;
-  background-color: #2691d9;
-}
-
+#barAddNewCntct {
+  grid-template-columns: 1fr auto;
+ }
 /* buttons */
-.button {
-  margin: 0 5% 2% auto;
-  background: #fcfcfc;
-  background-image: linear-gradient(to bottom, #ffffff, #cacaca);
-  border-radius: 28px;
-  font-family: Arial;
-  color: #2691d9;
-  font-size: 16px;
-  font-weight: bold;
-  padding: 1vh 1vw 1vh 1vw;
-  outline:0;
-}
 .save-btn{
   margin-top: 5vh;
 }
 .addButton{
- min-width: fit-content;
- width: 3vw;
+  min-width: fit-content;
+  width: 3vw;
   border-radius: 0px 10px 10px 0px;
   border-color: rgba(68, 68, 68, 0.178);
   background-image: linear-gradient(to bottom, #ffffff, #cacaca);

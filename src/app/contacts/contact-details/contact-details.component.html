@@ -1,15 +1,37 @@
 <div class="wrapper">
-    <div id="bar">
-        <h2>{{title}}</h2>
-        <div class="button">Edit</div>
-        <div class="button">Delete</div>
-        <a class="button" [routerLink]="['/contacts']">Back</a>
+    <div id="barEditContact" class="bar">
+        <p>{{title}}</p>
+        <div id="buttonContainer">
+            <button class="button" (click)=enableEdit()>Edit</button>
+            <button class="button" (click)="deleteContact()">Delete</button>
+            <button class="button" [routerLink]="['/contacts']">Back</button>
+        </div>
     </div>
     <div class="contactInfo" *ngIf="contact">
-        <div class="row">Name: {{contact.firstName}} {{contact.lastName}}</div>
-        <div class="row" id="emails">
-            <div *ngFor="let e of contact.emails"> Email: {{e.email}}</div>
+        <div class="row">
+            <h3>First Name: </h3>
+            <div [hidden]="editEnabled">{{contact.firstName}}</div>
+            <input [hidden]="!editEnabled" type="text" value="{{contact.firstName}}">
         </div>
-        <div class="row">Phone Number: {{contact.contactPhoneNum}}</div>
+        <div class="row">
+            <h3>Last Name: </h3>
+            <div [hidden]="editEnabled">{{contact.lastName}}</div>
+            <input [hidden]="!editEnabled" type="text">
+        </div>
+        <div class="row">
+            <h3>Email: </h3>
+            <div id="emails">
+                <div class="divEmailPhnNumData" *ngFor="let e of contact.emails">
+                    <div [hidden]="editEnabled">{{e.email}}</div><input [hidden]="!editEnabled" type="text">
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <h3>Phone Number: </h3>
+            <div>
+                <div *ngFor="let p of contact.phoneNumbers">{{p.phoneNum}}</div>
+            </div>
+        </div>
     </div>
+
 </div>

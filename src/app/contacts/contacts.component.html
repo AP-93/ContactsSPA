@@ -1,7 +1,8 @@
 <div class="wrapper">
-    <div id="bar">Search: &nbsp;
+    <div class="bar" id="barId">
+        <p>Search: &nbsp;</p>
         <input type="text" [(ngModel)]="listFilter" />
-        <a class="button" [routerLink]="['/contacts/contact-add-new']">+</a>
+        <button id="addButton" class="button" [routerLink]="['/contacts/contact-add-new']"> + </button>
     </div>
     <div class="list">
         <table>

@@ -1,37 +1,51 @@
 .wrapper {
   display: grid;
   grid-template-rows: minmax(min-content, 6vh) 1fr;
-  background-color: #fff;
+  background-color: #e9f4fb;
   color: #444;
   height: 100%;
   width: 100%;
   margin: 0;
   padding: 0;
 }
-#bar {
-  display: flex;
-  font-size: 20px;
+
+/* navbar*/
+.bar{
+  display: grid;
+  height: 4vh;
+  min-height: fit-content;
+  padding: 1% 2%;
+  font-size: calc(10px + 1vw);
   color: #e9f4fb;
-  padding-left: 2%;
   align-items: center;
   background-color: #2691d9;
 }
+#barId {
+  grid-template-columns: auto 1fr 1fr;
+}
+/* navbarEnd*/
+
+/* buttons*/
 .button {
-  margin: 0 5% 2% auto;
-  background: #fcfcfc;
+  margin: 0 2vw ;
+  width: fit-content;
   background-image: linear-gradient(to bottom, #ffffff, #cacaca);
-  border-radius: 28px;
+  border-radius: 10px;
   font-family: Arial;
   color: #2691d9;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
+  font-size: calc(12px + 0.4vw);
+  padding: 1vh 1vw 1vh 1vw;
+  outline:0;
 }
 .button:hover {
-  background: #6a90a8;
   background-image: linear-gradient(to bottom, #eeeeee, #bebdbd);
-  text-decoration: none;
 }
+#addButton{
+  width: 5vw;
+  margin: 0 2vw 0 auto;
+}
+/* buttonsEnd*/
+
 /* Table */
 table {
   font-family: arial, sans-serif;
@@ -47,7 +61,7 @@ td,th {
   max-height: fit-content;
 }
 th {
-  background-color: #e9f4fb;
+  background-color: #fcfcfc;
   color: #2691d9;
 }
 td {
@@ -59,6 +73,6 @@ tr:hover {
   background-image: repeating-linear-gradient(to bottom, #fffbfb, #e0dfdf);
 }
 tr:nth-child(even) {
-  background-color: #e9f4fb;
+  background-color: #ffffff;
 }
 /* TableEnd  */

@@ -1,7 +1,7 @@
 h1 {
   align-items: center;
   font-size: calc(24px + 1vw);
-  max-height: 5%;
+  height: 5vh;
   min-height: fit-content;
   padding: 1% 5%;
   margin: 0;

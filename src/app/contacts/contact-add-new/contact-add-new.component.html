@@ -1,8 +1,9 @@
 <div class="wrapper">
-  <div id="bar">ADD NEW CONTACT
+  <div id="barAddNewCntct" class="bar">
+    <p>ADD NEW CONTACT</p>
     <button class="button" [routerLink]="['/contacts']">Back</button>
   </div>
-  <form class="contactForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
+  <form [formGroup]="contactForm" class="contactForm" #form="ngForm" (ngSubmit)="onSubmit(form)">
 
     <label>First Name:</label>
     <input type="text" name="firstName" placeholder="  First Name" [(ngModel)]="newContact.firstName" required
@@ -36,7 +37,7 @@
           {{pNum}} <button class="deleteButton" type="button" (click)="deleteAddedPhoneNum(pNum)">x</button>
         </div>
       </div>
-      <button type="submit" class="button save-btn">Save</button>
+      <div class="save-btn"><button type="submit" class="button save-btn">Save</button></div>
     </div>
   </form>
   <div class="btmMsg" [hidden]="!postError">{{postErrorMsg}}</div>

@@ -5,7 +5,7 @@ import { ContactService } from '../contact.service';
 
 @Component({
   templateUrl: './contact-add-new.component.html',
-  styleUrls: ['./contact-add-new.component.css']
+  styleUrls: ['./contact-add-new.component.css', '../contacts.component.css']
 })
 export class ContactAddNewComponent implements OnInit {
 

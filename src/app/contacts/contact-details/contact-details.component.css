@@ -1,52 +1,34 @@
-.wrapper {
-  display: grid;
-  grid-template-rows: minmax(min-content, 5vh) 1fr;
-  background-color:#204053;
-  height: 90vh;
-  min-height: fit-content;
-  width: 100%;
-  margin: 0;
-  padding: 0;
+#barEditContact{
+  grid-template-columns: auto 1fr;
 }
-#bar {
-  display: grid;
-  grid-template-columns: 5fr  1fr 1fr 1fr;
-  color: #e9f4fb;
-  padding-left: 2%;
-  background-color: #2691d9;
-  max-height: fit-content;
-}
-.button {
-  margin: auto;
-  background: #fcfcfc;
-  max-height: 5vh;
-  background-image: linear-gradient(to bottom, #ffffff, #cacaca);
-  border-radius: 28px;
-  font-family: Arial;
-  color: #2691d9;
-  font-size: 16px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none;
-}
-.button:hover {
-  background-image: linear-gradient(to bottom, #eeeeee, #bebdbd);
-  text-decoration: none;
+#buttonContainer{
+  margin-left: auto;
 }
 .contactInfo{
-  max-height: 30vh;
   display: grid;
-  margin: 1vh 20vw;
-  grid-auto-rows: 1fr 1fr 1fr;
+  margin: 2vh ;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
   background-color: rgb(163, 211, 255);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   border-radius: 10px;
 }
+h3{
+  margin: 0 3vw;
+  padding: 0;
+}
 .row{
+  display: grid;
+  grid-template-columns: auto 1fr;
   min-height: 5vh;
-  max-height: 8vh;
+  max-height: 8vh; 
   padding: 2vh;
 }
 #emails{
   display: grid;
-  grid-template-columns: repeat(auto-fit,200px);
+  grid-template-columns: repeat(auto-fit, minmax(200px , max-content));
+}
+.divEmailPhnNumData{
+  margin: 0 auto;
+ word-break: break-all;
+ padding: 0 1vw;
 }
