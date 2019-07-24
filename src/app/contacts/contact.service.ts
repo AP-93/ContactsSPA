@@ -2,9 +2,7 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http"
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-
 import { IContact } from './data/contact';
-import { InewContact } from './data/newContact';
 
 @Injectable({
   providedIn: 'root'
@@ -21,20 +19,23 @@ export class ContactService {
       catchError(this.handleError)
     );
   }
-
   getContactbyId(id: string): Observable<IContact> {
     return this.http.get<IContact>(this.contactsUrl + "/" + id).pipe(
       tap(data => console.log("DATA:  " + JSON.stringify(data))),
       catchError(this.handleError)
     );
   }
-
-  postNewContact(newContact: InewContact): Observable<any> {
-    return this.http.post(this.contactsUrl, newContact, { responseType: 'text' }).pipe(
-      tap(data => console.log("DATA:  " + JSON.stringify(data))),
+  postNewContact(newContact: IContact): Observable<IContact> {
+    return this.http.post<IContact>(this.contactsUrl, newContact).pipe(
+      tap(data => console.log("DATA" + JSON.stringify(data))),
       catchError(this.handleError));
   }
-
+  updateContact(id: string, updateContact: IContact): Observable<IContact> {
+    return this.http.put<IContact>(this.contactsUrl + "/" + id, updateContact).pipe(
+      tap(data => console.log("DATA:  " + JSON.stringify(data))),
+      catchError(this.handleError)
+    );
+  }
   deleteContact(id: string): Observable<any> {
     return this.http.delete(this.contactsUrl + "/" + id).pipe(
       tap(data => console.log("DATA:  " + JSON.stringify(data))),

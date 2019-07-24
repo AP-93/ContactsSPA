@@ -1,0 +1,53 @@
+.contactForm {
+  display: grid;
+  width: fit-content;
+  grid-template-columns: 1fr ;
+  margin: 2vh auto;
+  row-gap: 1vh;
+}
+
+input {
+  padding-left: 1vw;
+  width:50vw;
+  height: 6vh;
+  border-radius: 10px;
+  border-color: rgba(68, 68, 68, 0.178);
+}
+input:focus {
+  outline: none;
+  box-shadow: 0px 0px 2px rgb(77, 138, 252);
+}
+input:disabled {
+  color: rgb(84, 84, 84);
+  cursor: default;
+  background-color: #eff9ff;
+}
+
+label {
+  font-size: calc(8px + 1vw);
+  color: #1673b1;
+  max-width: fit-content;
+  margin-top: 3vh;
+}
+.field-error {
+  border: 2px solid rgba(255, 0, 0, 0.712);
+}
+
+#barEditContact {
+  display: grid;
+  grid-template-columns: 1fr auto ;
+}
+.save-button{
+  margin: 0 2vw 0 auto;
+  width: fit-content;
+  background-color:  #2691d9;
+  border-radius: 10px;
+  font-family: Arial;
+  color: #e9f4fb;
+  font-size: calc(12px + 0.4vw);
+  padding: 1vh 1vw 1vh 1vw;
+  outline:0;
+}
+.save-button:disabled{
+  background-color: #2691d960;
+}

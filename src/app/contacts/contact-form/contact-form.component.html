@@ -1,0 +1,48 @@
+<div id="barEditContact" class="bar">
+  <p>{{pageTitle}}</p>
+  <div id="buttonContainer">
+    <button class="button" [hidden]="pageTitle==='Add New Contact' || contactForm.enabled"
+      (click)="contactForm.enable()">Edit</button>
+    <button class="button" [hidden]="pageTitle==='Add New Contact'" (click)="deleteContact()">Delete</button>
+    <button class="button" [routerLink]="['/contacts']">Back</button>
+  </div>
+</div>
+
+<form class="contactForm" [formGroup]="contactForm" (ng-submit)="save()" novalidate>
+
+  <label>First Name: </label>
+  <div>
+    <input type="text" placeholder="First Name (required)" formControlName="firstName"
+      [ngClass]="{'field-error':(contactForm.get('firstName').touched || contactForm.get('firstName').dirty) && contactForm.get('firstName').invalid }">
+  </div>
+
+  <label>Last Name: </label>
+  <div>
+    <input type="text" placeholder="Last Name (required)" formControlName="lastName"
+      [ngClass]="{'field-error':(contactForm.get('lastName').touched || contactForm.get('lastName').dirty) && contactForm.get('lastName').invalid }">
+  </div>
+
+  <label>Email: </label>
+  <div formArrayName="emails" *ngFor="let e of emails.controls; let i = index">
+    <div formGroupName="{{i}}">
+      <input type="email" placeholder="Example@example.com" formControlName="email"
+        [ngClass]="{'field-error': e.invalid}">
+      <button class="button" [hidden]="contactForm.disabled" (click)="deleteEmail(i)">delete</button>
+    </div>
+  </div>
+  <button class="button" type="button" (click)="addEmail()" [disabled]="emails.invalid || lastEmailBox.value.email===''"
+    [hidden]="contactForm.disabled">add</button>
+
+  <label>Phone Number: </label>
+  <div formArrayName="phoneNumbers" *ngFor="let n of contactForm.get('phoneNumbers').controls; let i = index">
+    <div formGroupName="{{i}}">
+      <input type="text" placeholder="0123456789 (required)" formControlName="phoneNum"
+        [ngClass]="{'field-error': (n.touched || n.dirty) && n.invalid}">
+      <button class="button" [hidden]="contactForm.disabled" (click)="deletePhoneNum(i)">delete</button>
+    </div>
+  </div>
+  <button class="button" type="button" (click)="addPhoneNum()" [disabled]="phoneNumbers.invalid"
+    [hidden]="contactForm.disabled">add</button>
+  <button class="save-button" type="submit" (click)="save()" [hidden]="contactForm.disabled"
+    [disabled]="contactForm.invalid">Save</button>
+</form>

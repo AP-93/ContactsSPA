@@ -10,7 +10,7 @@
 }
 
 /* navbar*/
-.bar{
+.bar {
   display: grid;
   height: 4vh;
   min-height: fit-content;
@@ -39,6 +39,10 @@
 }
 .button:hover {
   background-image: linear-gradient(to bottom, #eeeeee, #bebdbd);
+}
+.button:disabled{
+  background-image:linear-gradient(to bottom, #2691d900, #207bb800);
+  color: rgb(255, 255, 255);
 }
 #addButton{
   width: 5vw;

@@ -2,7 +2,7 @@
     <div class="bar" id="barId">
         <p>Search: &nbsp;</p>
         <input type="text" [(ngModel)]="listFilter" />
-        <button id="addButton" class="button" [routerLink]="['/contacts/contact-add-new']"> + </button>
+        <button id="addButton" class="button" [routerLink]="['/contacts/0']"> + </button>
     </div>
     <div class="list">
         <table>
@@ -12,7 +12,7 @@
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor='let contact of filteredContacts' [routerLink]="['/contacts', contact.id]">
+                <tr *ngFor='let contact of filteredContacts' [routerLink]="['/contacts',contact.id]">
                     <td>{{contact.firstName}} {{contact.lastName}}</td>
                 </tr>
             </tbody>
