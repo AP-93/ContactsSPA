@@ -1,8 +1,8 @@
 <div class="wrapper">
     <div class="bar" id="barId">
-        <p>Search: &nbsp;</p>
-        <input type="text" [(ngModel)]="listFilter" />
-        <button id="addButton" class="button" [routerLink]="['/contacts/0']"> + </button>
+        <div>Contacts</div>
+        <input id="searchInput" type="text" [(ngModel)]="listFilter" placeholder="Search" />
+        <button id="addButton" [routerLink]="['/contacts/0']"><span id="plusInBtn"> + </span></button>
     </div>
     <div class="list">
         <table>

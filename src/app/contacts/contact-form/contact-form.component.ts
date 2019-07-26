@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormBuilder, Validators, FormArray, FormControl} from '@angular/forms';
+import { FormGroup, FormBuilder, Validators, FormArray, FormControl } from '@angular/forms';
 import { IContact, IEmail, IPhoneNum } from '../data/contact';
 import { ActivatedRoute, Router } from "@angular/router";
-import { ContactService } from '../contact.service';
+import { ContactService } from '../services/contact.service';
 
 @Component({
   selector: 'app-contact-form',
@@ -11,7 +11,7 @@ import { ContactService } from '../contact.service';
 })
 export class ContactFormComponent implements OnInit {
 
-  pageTitle: string = "Add New Contact";
+  pageTitle: string = "";
   contactForm: FormGroup;
   contact: IContact;
 
@@ -50,11 +50,13 @@ export class ContactFormComponent implements OnInit {
         })
       ])
     })
+
     let id = this.route.snapshot.paramMap.get('id');
     if (id != "0") {
       this.pageTitle = "Edit Contact";
       this.getContact(id);
-    }
+    } else
+      this.pageTitle = "Add New Contact";
   }
   getContact(id: string): void {
     this.contactService.getContactbyId(id)
@@ -106,7 +108,7 @@ export class ContactFormComponent implements OnInit {
     this.emails.push(this.fb.group({
       id: [0],
       email: ["", Validators.email],
-      contactID: [0] 
+      contactID: [0]
     }))
   }
   deleteEmail(index: number): void {
@@ -116,7 +118,7 @@ export class ContactFormComponent implements OnInit {
       this.emails.get(index.toString()).patchValue({
         id: 0,
         email: "",
-        contactID: 0 
+        contactID: 0
       })
     }
   }

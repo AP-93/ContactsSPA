@@ -2,14 +2,14 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from "@angular/common/http"
 import { Observable, throwError } from "rxjs";
 import { catchError, tap } from "rxjs/operators";
-import { IContact } from './data/contact';
+import { IContact } from '../data/contact';
 
 @Injectable({
   providedIn: 'root'
 })
 export class ContactService {
 
-  private contactsUrl = "https://localhost:44315/api/contacts";
+  private contactsUrl = "https://contactsapi20190724075638.azurewebsites.net/api/contacts";
 
   constructor(private http: HttpClient) { }
 

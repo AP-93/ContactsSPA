@@ -4,14 +4,19 @@
   grid-template-columns: 1fr ;
   margin: 2vh auto;
   row-gap: 1vh;
+  font-family: sans-serif;
+  font-size: calc(12px + 1vw);
 }
-
 input {
   padding-left: 1vw;
   width:50vw;
   height: 6vh;
   border-radius: 10px;
   border-color: rgba(68, 68, 68, 0.178);
+}
+input::placeholder{
+  color: #5c36b36e;
+  opacity: 1; 
 }
 input:focus {
   outline: none;
@@ -20,34 +25,73 @@ input:focus {
 input:disabled {
   color: rgb(84, 84, 84);
   cursor: default;
-  background-color: #eff9ff;
+  background-color: #ffffff;
+  border-top: 0;
+  border-radius: 0;
+  font-size: calc(10px + 1vh);
+  border-right: 0;
+  border-left: 0;
 }
-
 label {
-  font-size: calc(8px + 1vw);
-  color: #1673b1;
+  font-size: calc(10px + 1vh);
+  color: #5b36b3;
+  font-weight: bold;
   max-width: fit-content;
   margin-top: 3vh;
 }
 .field-error {
   border: 2px solid rgba(255, 0, 0, 0.712);
 }
-
 #barEditContact {
   display: grid;
   grid-template-columns: 1fr auto ;
 }
-.save-button{
+#save-button{
   margin: 0 2vw 0 auto;
   width: fit-content;
-  background-color:  #2691d9;
   border-radius: 10px;
   font-family: Arial;
-  color: #e9f4fb;
   font-size: calc(12px + 0.4vw);
   padding: 1vh 1vw 1vh 1vw;
   outline:0;
+  border: 2px solid #03dac6;
+  background-color: #03dac6;
+  box-shadow: 2px 2px 3px #018786;
+  color: #ffffff;
 }
-.save-button:disabled{
-  background-color: #2691d960;
+.deleteBtn{
+  border-radius: 50px;
+  position: relative;
+  padding: 0;
+  right: 10px;
+  bottom: 2.5vh;
+  border:1px;
+  outline: 0;
+  width: 1vw;
+  height: 1vw;
+  min-width: 25px;
+  min-height: 25px;
+	background-color:#03dac6;
+	color:#FFF;
+	border-radius:50%;
+	text-align:center;
+	box-shadow: 2px 2px 3px #018786;
+}
+.deleteBtn:active{
+  box-shadow: 0 0 0;
+  border:1px solid #018786;
+}
+#addEmailBtn,#addPhoneBtn{
+  background-color: #03dac6;
+  box-shadow: 2px 2px 3px #018786;
+  color: #ffffff;
+}
+#save-button:disabled,#addEmailBtn:disabled,#addPhoneBtn:disabled{
+  background-color: #7be0d6;
+  border: 0;
+  box-shadow: 0 0 0 ;
+}
+#save-button:active,#addEmailBtn:active,#addPhoneBtn:active{
+  border: 2px solid #03dac6;
+  box-shadow: 2px 2px 3px #ffffff;
 }
